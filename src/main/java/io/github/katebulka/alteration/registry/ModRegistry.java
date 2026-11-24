@@ -24,8 +24,4 @@ public class ModRegistry {
 			Registry.register(BuiltInRegistries.SOUND_EVENT, id, supplier.get());
 		});
 	}
-
-	public static void initializeNeoforge() {
-
-	}
 }

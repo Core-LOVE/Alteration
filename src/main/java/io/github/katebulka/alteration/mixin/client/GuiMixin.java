@@ -2,6 +2,8 @@ package io.github.katebulka.alteration.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.katebulka.alteration.ModConfig;
+import io.github.katebulka.alteration.ModHelper;
+import io.github.katebulka.alteration.compat.RaisedCompat;
 import io.github.katebulka.alteration.registry.ModSoundEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -113,6 +115,12 @@ public class GuiMixin {
 
 			RenderSystem.enableBlend();
 
+			g.pose().pushPose();
+
+			if (ModHelper.isModLoaded("raised")) {
+				RaisedCompat.translate(g, "oxygen_bar");
+			}
+
 			for (int j4 = 0; j4 < 10; ++j4) {
 				int x = i1 - j4 * 8 - 9;
 
@@ -129,6 +137,8 @@ public class GuiMixin {
 			}
 
 			RenderSystem.disableBlend();
+
+			g.pose().popPose();
 
 			this.rightHeight += 10;
 		}

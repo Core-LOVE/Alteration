@@ -1,5 +1,6 @@
 package io.github.katebulka.alteration;
 
+import io.github.katebulka.alteration.compat.RaisedCompat;
 import io.github.katebulka.alteration.platform.Platform;
 
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +33,10 @@ public class AlterationMod {
 	}
 
 	public static void onInitializeClient() {
+		if (ModHelper.isModLoaded("raised")) {
+			RaisedCompat.initialize();
+		}
+
 		LOGGER.info("Initializing {} Client on {}", MOD_ID, AlterationMod.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 	}

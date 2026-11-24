@@ -88,6 +88,8 @@ dependencies {
 	compileOnly("net.caffeinemc:sodium-neoforge:${property("sodium_version")}")
 
 	compileOnly("dev.isxander:yet-another-config-lib:${property("yacl_version")}")
+
+	compileOnly("maven.modrinth:nCQRBEiR:utAvUolB")
 }
 
 tasks.named("createMinecraftArtifacts") {

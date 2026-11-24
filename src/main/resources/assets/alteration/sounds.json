@@ -1,0 +1,8 @@
+{
+  "ui.hud.hp_heal": {
+    "sounds": [
+      "alteration:ui/hud/hp_heal"
+    ],
+    "subtitle": "subtitles.ui.hud.hp_heal"
+  }
+}

@@ -1,0 +1,13 @@
+# Alteration
+
+<a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
+<a href='https://fabricmc.net'><img alt="fabric" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg"></a>
+<a href='https://neoforged.net/'><img alt="neoforge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg"></a><br>
+<a href='https://neoforged.net/'><img alt="curseforge" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/curseforge_vector.svg">
+</a><a href='https://neoforged.net/'><img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg"></a>
+
+**Alteration** is a multi-platform Minecraft mod focused on adding random tweaks, visual changes, small backports and etc. Useful for modpacks!
+
+## Features
+### Oxygen Bar Backport (<=1.21.1) (w/ Sound)
+![Oxygen Bar Backport Image]()

@@ -9,5 +9,18 @@
 **Alteration** is a multi-platform Minecraft mod focused on adding random tweaks, visual changes, small backports and etc. Useful for modpacks!
 
 ## Features
-### Oxygen Bar Backport (<=1.21.1) (w/ Sound)
-![Oxygen Bar Backport Image]()
+### Oxygen Bar Backport (<=1.21.1)
+Backported 1.21.2+ oxygen bar update, as well as backporting bubble pop sound (both are configurable).<br>
+![Oxygen Bar Backport Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/oxygen_bar.png)
+
+---
+
+### "Terraria" Lighting
+Terraria-like lighting system. (REQUIRES SODIUM)
+
+![Terraria Lighting Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/oxygen_bar.png)
+
+---
+
+### Heal Sound
+Original feature, plays a new healing sound when health goes up.

@@ -10,7 +10,7 @@
 
 ## Features
 ### Oxygen Bar Backport (<=1.21.1)
-Backported 1.21.2+ oxygen bar update, as well as backporting bubble pop sound (both are configurable). Supports [Raised]([/guides/content/editing-an-existing-page](https://modrinth.com/mod/raised))!<br>
+Backported 1.21.2+ oxygen bar update, as well as backporting bubble pop sound (both are configurable). Supports [Raised]((https://modrinth.com/mod/raised))!<br>
 ![Oxygen Bar Backport Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/oxygen_bar.png)
 
 ---

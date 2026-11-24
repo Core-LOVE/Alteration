@@ -15,10 +15,10 @@ Backported 1.21.2+ oxygen bar update, as well as backporting bubble pop sound (b
 
 ---
 
-### "Terraria" Lighting
-Terraria-like lighting system. (REQUIRES SODIUM)
+### "Terraria" Lighting **[REQUIRES SODIUM]**
+Terraria-like lighting system, which mixes both flat and smooth lighting (Strength is configurable)
 
-![Terraria Lighting Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/oxygen_bar.png)
+![Terraria Lighting Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/lighting.png)
 
 ---
 

@@ -41,6 +41,16 @@ You can now change default text hover text! By default it's Yellow.
 
 ---
 
+### Terraria "Space"
+Entities have lower gravity when they're too high up.
+
+---
+
+### Burst Door Open
+Ported Burst Door Open mod features into this mod! (https://modrinth.com/mod/burst-door-open)
+
+---
+
 ### Easy Replacing
 Now you can replace flowers and other similar blocks with other blocks more easily (Configurable with block tag). 
 

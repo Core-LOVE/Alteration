@@ -42,8 +42,8 @@ public class NeoforgeEntrypoint {
 
 	public static void register(IEventBus modEventBus) {
 		registerBus(modEventBus, BuiltInRegistries.SOUND_EVENT, ModSoundEvents.MAP);
-		registerBus(modEventBus, BuiltInRegistries.BLOCK, ModBlocks.MAP);
-		registerBus(modEventBus, BuiltInRegistries.ITEM, ModItems.MAP);
+//		registerBus(modEventBus, BuiltInRegistries.BLOCK, ModBlocks.MAP);
+//		registerBus(modEventBus, BuiltInRegistries.ITEM, ModItems.MAP);
 	}
 
 	public NeoforgeEntrypoint(IEventBus modEventBus, ModContainer modContainer) throws IOException {

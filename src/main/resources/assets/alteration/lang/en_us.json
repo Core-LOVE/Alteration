@@ -1,5 +1,39 @@
 {
   "tooltip.alteration.stairs": "Stairs",
   "tooltip.alteration.slab": "Slab",
-  "tooltip.alteration.wall": "Wall"
+  "tooltip.alteration.wall": "Wall",
+
+  "config.alteration.category.gameplay": "Gameplay",
+  "config.alteration.category.visual": "Visual",
+  "config.alteration.category.audial": "Sounds",
+
+  "config.alteration.option.item_ignore_blocks": "Item-Passable Blocks",
+  "config.alteration.option.mixed_lights": "Terraria Lighting",
+  "config.alteration.option.flat_strength": "Terraria Lighting (Strength)",
+  "config.alteration.option.render_empty_air": "Render Empty Bubbles (HUD)",
+  "config.alteration.option.hover_text_color_enabled": "Hover Text Color Enabler",
+  "config.alteration.option.hover_text_color": "Hover Text Color",
+
+  "config.alteration.option.play_ui_bubble_pop": "HUD Bubble Sound",
+  "config.alteration.option.play_ui_bubble_pop_outside": "HUD Bubble Sound (Outside Water)",
+  "config.alteration.option.play_heal_sound": "HUD Heal Sound",
+
+  "config.alteration.option.easy_block_replace": "Easy Replace",
+  "config.alteration.option.fire_immune_items": "Fire-Immune Items",
+
+
+
+  "config.alteration.tooltip.item_ignore_blocks": "Items can now pass through certain blocks (such as leaves).",
+  "config.alteration.tooltip.mixed_lights": "Mix between Smooth and Flat Lighting",
+  "config.alteration.tooltip.flat_strength": "Strength of Lighting Mix",
+  "config.alteration.tooltip.render_empty_air": "1.21.2+ Empty Air Bubble Backport",
+  "config.alteration.tooltip.hover_text_color_enabled": "",
+  "config.alteration.tooltip.hover_text_color": "",
+
+  "config.alteration.tooltip.play_ui_bubble_pop": "1.21.2+ Empty Air Bubble Pop Backport",
+  "config.alteration.tooltip.play_ui_bubble_pop_outside": "",
+  "config.alteration.tooltip.play_heal_sound": "Play heal sound when health goes up",
+
+  "config.alteration.tooltip.easy_block_replace": "Replace flowers and other similar blocks with other blocks more easily",
+  "config.alteration.tooltip.fire_immune_items": "Some items are immune to Fire now (but not lava!)"
 }

@@ -37,6 +37,13 @@ Some items are immune to fire now! (Doesn't mean they're immune to lava) By defa
 ### Hover Text Color
 You can now change default text hover text! By default it's Yellow.
 
+![Hover Text Color Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/hover_color.png)
+
+---
+
+### Easy Replacing
+Now you can replace flowers and other similar blocks with other blocks more easily (Configurable with block tag). 
+
 ---
 
 ### Heal Sound

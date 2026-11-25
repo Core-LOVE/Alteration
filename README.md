@@ -1,7 +1,5 @@
 # Alteration
 
-<a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
-<a href='https://fabricmc.net'><img alt="fabric" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg"></a>
 <a href='https://neoforged.net/'><img alt="neoforge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg"></a><br>
 <a href='https://neoforged.net/'><img alt="curseforge" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/curseforge_vector.svg">
 </a><a href='https://neoforged.net/'><img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg"></a>
@@ -16,9 +14,28 @@ Backported 1.21.2+ oxygen bar update, as well as backporting bubble pop sound (b
 ---
 
 ### "Terraria" Lighting **[REQUIRES SODIUM]**
-Terraria-like lighting system, which mixes both flat and smooth lighting (Strength is configurable)
+Terraria-like lighting system, which mixes both flat and smooth lighting (Strength is configurable).
 
 ![Terraria Lighting Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/lighting.png)
+
+---
+
+### Item-Passable Blocks
+Items can now pass through blocks like leaves (Configurable with block tag).
+
+![Item Passable Blocks Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/passable_blocks.png)
+
+---
+
+### Fire-Immune Items
+Some items are immune to fire now! (Doesn't mean they're immune to lava) By default includes Blaze Rod/Powder (Configurable with item tag).
+
+![Fire Immune Items Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/fire_immune_items.png)
+
+---
+
+### Hover Text Color
+You can now change default text hover text! By default it's Yellow.
 
 ---
 

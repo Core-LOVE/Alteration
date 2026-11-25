@@ -97,6 +97,18 @@ public class ModConfig {
 	@ConfigOption(key = "render_empty_air", category = "visual")
 	public boolean renderEmptyBubbles = true;
 
+	@ConfigOption(key = "better_trim_tooltip", category = "visual")
+	public boolean betterTrimTooltip = true;
+
+	@ConfigOption(key = "banner_tooltip", category = "visual")
+	public boolean bannerTooltip = true;
+
+	@ConfigOption(key = "book_tooltip", category = "visual")
+	public boolean bookTooltip = true;
+
+	@ConfigOption(key = "tooltip_can_expand", category = "visual")
+	public boolean tooltipCanExpand = true;
+
 	@ConfigOption(key = "play_ui_bubble_pop", category = "audial")
 	public boolean playUiBubblePop = true;
 
@@ -111,6 +123,15 @@ public class ModConfig {
 
 	@ConfigOption(key = "hover_text_color", category = "visual")
 	public Color hoverTextColor = new Color(255, 255, 84);
+
+	@ConfigOption(key = "sound_proof", category = "audial")
+	public boolean soundProof = true;
+
+	@ConfigOption(key = "sound_proof_distance", category = "audial", min = 0F, max = 1F)
+	public float soundProofDistance = 1.0F;
+
+	@ConfigOption(key = "sound_proof_interval", category = "audial", min = 0F, max = 1F)
+	public float soundProofInterval = 0.5F;
 
 	//
 

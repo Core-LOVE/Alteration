@@ -90,6 +90,12 @@ dependencies {
 	compileOnly("dev.isxander:yet-another-config-lib:${property("yacl_version")}")
 
 	compileOnly("maven.modrinth:nCQRBEiR:utAvUolB")
+
+	compileOnly("maven.modrinth:1iicrEO3:SpFNxWZa")
+	compileOnly("maven.modrinth:VsM5EDoI:FHOjk8Ez")
+
+	compileOnly("maven.modrinth:supplementaries:JuYIXjpy")
+	compileOnly("maven.modrinth:moonlight:FhoIf5nd")
 }
 
 tasks.named("createMinecraftArtifacts") {

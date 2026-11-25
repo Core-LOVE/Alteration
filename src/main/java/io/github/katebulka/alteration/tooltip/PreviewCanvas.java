@@ -31,20 +31,21 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.geom.ModelPart;
 //?}
 
-public final class BannerTooltip {
+// https://github.com/crastinator/tooltips-improved
+public final class PreviewCanvas {
 	static final int BANNER_WIDTH = 20, BANNER_HEIGHT = 40;
 	private static final int MAP_TEXTURE_SIZE = 128;
 
 	//? if >=26.1 {
 	/*private final GuiGraphicsExtractor graphics;
 
-	BannerTooltip(GuiGraphicsExtractor graphics) {
+	PreviewCanvas(GuiGraphicsExtractor graphics) {
 		this.graphics = graphics;
 	}
 	*///?} else {
 	private final GuiGraphics graphics;
 
-	BannerTooltip(GuiGraphics graphics) {
+	PreviewCanvas(GuiGraphics graphics) {
 		this.graphics = graphics;
 	}
 	//?}

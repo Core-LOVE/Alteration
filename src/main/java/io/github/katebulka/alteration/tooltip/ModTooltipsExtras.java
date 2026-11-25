@@ -1,4 +1,97 @@
 package io.github.katebulka.alteration.tooltip;
 
-public class ModTooltipsExtras {
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//? if >=1.20.5 {
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
+//?} else {
+/*import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+*///?}
+//? if >=1.21.5 {
+/*import net.minecraft.world.item.component.TooltipDisplay;
+ *///?} elif >=1.20.5 {
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+//?}
+
+// https://github.com/crastinator/tooltips-improved/tree/main
+public final class ModTooltipsExtras {
+	/** @return the lines to show; vanilla's own list can be immutable, so it's only added to through a copy */
+//	public static List<Component> addLines(ItemStack stack, List<Component> lines, Player player, TooltipFlag flag) {
+		// Vanilla also builds tooltips off the render thread for the creative search, which shouldn't index these
+//		if (!Minecraft.getInstance().isSameThread() || (!flag.isCreative() && hidesTooltip(stack))) return lines;
+//
+//		List<Component> added = new ArrayList<>();
+//		boolean shift = TooltipsImproved.isExpanded();
+//		Component durability = TooltipDurability.line(stack, lines, shift);
+//		if (durability != null) added.add(durability);
+//		added.addAll(TooltipComparison.lines(stack, player, shift));
+//		if (added.isEmpty()) return lines;
+//
+//		List<Component> result = new ArrayList<>(lines.size() + added.size());
+//		result.addAll(lines);
+//		result.addAll(added);
+//		return result;
+//	}
+
+	static boolean hidesTooltip(ItemStack stack) {
+		//? if >=1.21.5 {
+		/*return stack.getOrDefault(DataComponents.TOOLTIP_DISPLAY, TooltipDisplay.DEFAULT).hideTooltip();
+		 *///?} elif >=1.20.5 {
+		return stack.has(DataComponents.HIDE_TOOLTIP);
+		//?} else {
+        /*// Before 1.20.5 a tooltip could only be hidden in parts
+        return false;
+        *///?}
+	}
+
+	static boolean showsDamage(ItemStack stack) {
+		//? if >=1.20.5 {
+		return shows(stack, DataComponents.DAMAGE);
+		//?} else {
+		/*return true;
+		 *///?}
+	}
+
+	static boolean showsModifiers(ItemStack stack) {
+		//? if >=1.20.5 {
+		return shows(stack, DataComponents.ATTRIBUTE_MODIFIERS);
+		//?} else {
+		/*return shows(stack, ItemStack.TooltipPart.MODIFIERS);
+		 *///?}
+	}
+
+	//? if >=1.20.5 {
+	/** Whether the item leaves a component's part of the tooltip visible. */
+	static boolean shows(ItemStack stack, DataComponentType<?> type) {
+		//? if >=1.21.5 {
+		/*return stack.getOrDefault(DataComponents.TOOLTIP_DISPLAY, TooltipDisplay.DEFAULT).shows(type);
+		 *///?} else {
+		// Before tooltip_display, stats had their own setting, damage couldn't be hidden, and the rest shared one
+		if (hidesTooltip(stack)) return false;
+		if (type == DataComponents.ATTRIBUTE_MODIFIERS) return stack.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY).showInTooltip();
+		return type == DataComponents.DAMAGE || !stack.has(DataComponents.HIDE_ADDITIONAL_TOOLTIP);
+		//?}
+	}
+	//?} else {
+    /*/^* Whether the stack's HideFlags leave a part of the tooltip visible. ^/
+    static boolean shows(ItemStack stack, ItemStack.TooltipPart part) {
+        CompoundTag tag = stack.getTag();
+        int hidden;
+        if (tag != null && tag.contains("HideFlags", Tag.TAG_ANY_NUMERIC)) hidden = tag.getInt("HideFlags");
+        //? if forge {
+        /^else hidden = stack.getItem().getDefaultTooltipHideFlags(stack);
+        ^///?} else
+        else hidden = 0;
+        return (hidden & part.getMask()) == 0;
+    }
+    *///?}
 }

@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 //? fabric {
 
 //?} neoforge {
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -41,6 +42,20 @@ public class ModHelper {
 		/*return FabricLoader.getInstance().getConfigDir();
 		 *///?} else {
 		return FMLPaths.CONFIGDIR.get();
+		//?}
+	}
+
+	public static boolean isShifting() {
+		Minecraft minecraft = Minecraft.getInstance();
+
+		if (!minecraft.isSameThread()) {
+			return false;
+		}
+
+		//? if >=1.21.9 {
+		/*return minecraft.hasShiftDown();
+		 *///?} else {
+		return Screen.hasShiftDown();
 		//?}
 	}
 

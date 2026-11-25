@@ -20,7 +20,13 @@
     "client.AbstractButtonMixin",
     "client.AbstractSliderButtonMixin",
     "client.ParticleMixin",
+    "client.ArmorTrimMixin",
+    "client.ItemStackMixin",
+    "client.SoundManagerMixin",
+    "client.AbstractCandleBlockMixin",
 
-    "sodium.SmoothLightPipelineMixin"
+    "sodium.SmoothLightPipelineMixin",
+
+    "clayworks.DecoratedPotTrimMixin"
   ]
 }

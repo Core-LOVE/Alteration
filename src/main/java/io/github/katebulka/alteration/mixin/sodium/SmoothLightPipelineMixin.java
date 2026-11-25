@@ -1,6 +1,7 @@
 package io.github.katebulka.alteration.mixin.sodium;
 
 import io.github.katebulka.alteration.ModConfig;
+import io.github.katebulka.alteration.ModHelper;
 import net.caffeinemc.mods.sodium.client.model.light.data.LightDataAccess;
 import net.caffeinemc.mods.sodium.client.model.light.data.QuadLightData;
 import net.caffeinemc.mods.sodium.client.model.light.flat.FlatLightPipeline;
@@ -10,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -19,7 +21,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 		remap = false,
 		priority = 1500
 )
-public abstract class SmoothLightPipelineMixin {
+public abstract class SmoothLightPipelineMixin implements IMixinConfigPlugin {
+	@Override
+	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+		return (ModHelper.isModLoaded("sodium"));
+	}
+
 	@Unique private FlatLightPipeline alteration$flatPipeline;
 	@Unique private final QuadLightData alteration$flatLightData = new QuadLightData();
 

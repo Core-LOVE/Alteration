@@ -1,6 +1,7 @@
 package io.github.katebulka.alteration;
 
 import dev.isxander.yacl3.api.*;
+import dev.isxander.yacl3.api.controller.ColorControllerBuilder;
 import dev.isxander.yacl3.api.controller.DoubleSliderControllerBuilder;
 import dev.isxander.yacl3.api.controller.EnumControllerBuilder;
 import dev.isxander.yacl3.api.controller.FloatFieldControllerBuilder;
@@ -14,6 +15,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.function.Consumer;
 
 public class ModConfigScreen {
 	private static final Map<String, String> CATEGORY_KEYS = new LinkedHashMap<>() {{
+		put("gameplay", "config.alteration.category.gameplay");
 		put("visual", "config.alteration.category.visual");
 		put("audial", "config.alteration.category.audial");
 	}};
@@ -36,7 +39,7 @@ public class ModConfigScreen {
 		Map<String, ConfigCategory.Builder> categories = new LinkedHashMap<>();
 		CATEGORY_KEYS.forEach((id, key) -> categories.put(id, ConfigCategory.createBuilder().name(Component.translatable(key))));
 
-		for (Field field : ModConfig.Keys.class.getDeclaredFields()) {
+		for (Field field : ModConfig.class.getDeclaredFields()) {
 			ConfigOption ann = field.getAnnotation(ConfigOption.class);
 
 			if (ann == null) continue;
@@ -136,8 +139,23 @@ public class ModConfigScreen {
 				.build();
 	}
 
+	private static Option<Color> buildColor(Field field, ConfigOption ann) {
+		return Option.<Color>createBuilder()
+				.name(name(ann)).description(desc(ann))
+				.binding(
+						defaultOf(field, Color.class),
+						() -> (Color) get(field),
+						v -> set(field, v))
+				.controller(o -> ColorControllerBuilder.create(o))
+				.build();
+	}
+
 	private static Option<?> buildOption(Field field, ConfigOption ann) {
 		Class<?> t = field.getType();
+
+		if (t == Color.class) {
+			return buildColor(field, ann);
+		}
 
 		if (t == boolean.class) return buildBoolean(field, ann);
 		if (t == float.class) return buildFloat(field, ann);
@@ -163,7 +181,7 @@ public class ModConfigScreen {
 
 	private static Object get(Field field) {
 		try {
-			return field.get(ModConfig.KEYS);
+			return field.get(ModConfig.INSTANCE);
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		}
@@ -171,7 +189,7 @@ public class ModConfigScreen {
 
 	private static void set(Field field, Object value) {
 		try {
-			field.set(ModConfig.KEYS, value);
+			field.set(ModConfig.INSTANCE, value);
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		}
@@ -179,7 +197,7 @@ public class ModConfigScreen {
 
 	private static <T> T defaultOf(Field field, Class<T> type) {
 		try {
-			return type.cast(field.get(new ModConfig.Keys()));
+			return type.cast(field.get(new ModConfig()));
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		}

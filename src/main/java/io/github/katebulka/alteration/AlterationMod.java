@@ -2,7 +2,8 @@ package io.github.katebulka.alteration;
 
 import io.github.katebulka.alteration.compat.RaisedCompat;
 import io.github.katebulka.alteration.platform.Platform;
-
+import io.github.katebulka.alteration.registry.ModBlockTags;
+import io.github.katebulka.alteration.registry.ModItemTags;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,9 @@ public class AlterationMod {
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
+		ModBlockTags.register();
+		ModItemTags.register();
+
 		ModConfig.load();
 
 		LOGGER.info("Initializing {} on {}", MOD_ID, AlterationMod.xplat().loader());

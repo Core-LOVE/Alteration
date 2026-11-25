@@ -12,4 +12,5 @@ public @interface ConfigOption {
 	String category() default "general";
 	float min() default 0f;
 	float max() default 1f;
+	String type() default "default";
 }

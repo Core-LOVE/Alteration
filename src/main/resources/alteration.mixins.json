@@ -7,10 +7,13 @@
     "defaultRequire": 1
   },
   "mixins": [
-
+    "ItemEntityMixin",
+    "BlockBehaviourMixin"
   ],
   "client": [
     "client.GuiMixin",
+    "client.AbstractButtonMixin",
+    "client.AbstractSliderButtonMixin",
 
     "sodium.SmoothLightPipelineMixin"
   ]

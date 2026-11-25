@@ -30,14 +30,14 @@ public abstract class SmoothLightPipelineMixin {
 
 	@Inject(method = "calculate", at = @At("TAIL"))
 	private void alteration$calculate(ModelQuadView quad, BlockPos pos, QuadLightData out, Direction cullFace, Direction lightFace, boolean shade, boolean enhanced, CallbackInfo ci) {
-		if (!ModConfig.KEYS.mixedLights) {
+		if (!ModConfig.INSTANCE.mixedLights) {
 			return;
 		}
 
 		this.alteration$flatPipeline.calculate(quad, pos, alteration$flatLightData, cullFace, lightFace, shade, enhanced);
 
-		final float smoothWeight = 1.0f - ModConfig.KEYS.flatStrength;
-		final float flatWeight = ModConfig.KEYS.flatStrength;
+		final float smoothWeight = 1.0f - ModConfig.INSTANCE.flatStrength;
+		final float flatWeight = ModConfig.INSTANCE.flatStrength;
 
 		for (int i = 0; i < 4; i++) {
 			out.br[i] = out.br[i] * smoothWeight + alteration$flatLightData.br[i] * flatWeight;

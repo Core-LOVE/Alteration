@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#minecraft:flowers",
+
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "minecraft:moss_carpet",
+
+    "minecraft:weeping_vines",
+    "minecraft:weeping_vines_plant",
+    "minecraft:twisting_vines",
+    "minecraft:twisting_vines_plant",
+
+    "#minecraft:coral_plants",
+    "#minecraft:wall_corals"
+  ]
+}

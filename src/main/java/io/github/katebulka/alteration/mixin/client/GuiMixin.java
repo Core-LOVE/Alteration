@@ -73,7 +73,7 @@ public class GuiMixin {
 
 	@Inject(method = "renderHealthLevel", at = @At("HEAD"))
 	private void alteration$renderHealthLevel(GuiGraphics guiGraphics, CallbackInfo ci) {
-		if (!ModConfig.KEYS.playHealSound) {
+		if (!ModConfig.INSTANCE.playHealSound) {
 			return;
 		}
 
@@ -93,7 +93,7 @@ public class GuiMixin {
 
 	@Inject(method = "renderAirLevel", at = @At("HEAD"), cancellable = true)
 	private void alteration$renderAirBubbles(GuiGraphics g, CallbackInfo ci) {
-		if (!ModConfig.KEYS.renderEmptyBubbles && !ModConfig.KEYS.playUiBubblePop && !ModConfig.KEYS.playUiBubblePopOutside) {
+		if (!ModConfig.INSTANCE.renderEmptyBubbles && !ModConfig.INSTANCE.playUiBubblePop && !ModConfig.INSTANCE.playUiBubblePopOutside) {
 			return;
 		}
 
@@ -130,7 +130,7 @@ public class GuiMixin {
 					alteration$playAirBubblePoppedSound(j4, player, j3);
 					g.blitSprite(AIR_BURSTING_SPRITE, x, j2, 9, 9);
 				} else {
-					if (ModConfig.KEYS.renderEmptyBubbles) {
+					if (ModConfig.INSTANCE.renderEmptyBubbles) {
 						g.blitSprite(alteration$air_empty, x, j2, 9, 9);
 					}
 				}
@@ -149,9 +149,9 @@ public class GuiMixin {
 
 	@Unique
 	private void alteration$playAirBubblePoppedSound(int i, Player player, int j) {
-		if (!ModConfig.KEYS.playUiBubblePop) return;
+		if (!ModConfig.INSTANCE.playUiBubblePop) return;
 
-		if (!player.isEyeInFluid(FluidTags.WATER) && !ModConfig.KEYS.playUiBubblePopOutside) return;
+		if (!player.isEyeInFluid(FluidTags.WATER) && !ModConfig.INSTANCE.playUiBubblePopOutside) return;
 
 		if (this.alteration$lastBubblePopSoundPlayed != i) {
 			float f = 0.5F + 0.1F * Math.max(0, j - 3 + 1);

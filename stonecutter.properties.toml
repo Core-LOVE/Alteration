@@ -2,11 +2,11 @@
 id = "alteration"
 name = "Alteration"
 group = "io.github.katebulka"
-version = "0.1.0"
-channel_tag = "-alpha.2"
-description = "Example Description"
+version = "1.0.0"
+channel_tag = ""
+description = "A mod that adds various random tweaks"
 authors = ["KateBulka"]
-contributors = ["ContributorName", "AnotherContributorName"]
+contributors = ["Chemiofitor"]
 inception_year = "2026"
 license.name = "MIT"
 license.url = "https://opensource.org/licenses/MIT"
@@ -36,7 +36,7 @@ dev_jvm_args_mixin_debug = [
 [[mod.pom.developers]]
 id = "katebulka"
 name = "KateBulka"
-url = "https://github.com/ghost"
+url = "https://github.com/Core-LOVE"
 
 [fabric]
 deps.fabric-loader = "0.19.2"

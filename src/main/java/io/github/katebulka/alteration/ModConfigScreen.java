@@ -102,7 +102,10 @@ public class ModConfigScreen {
 						defaultOf(field, Integer.class),
 						() -> (Integer) get(field),
 						v -> set(field, v))
-				.controller(o -> IntegerSliderControllerBuilder.create(o))
+				.controller(o -> IntegerSliderControllerBuilder.create(o)
+						.range((int) ann.min(), (int) ann.max())
+						.step((int) ann.interval())
+				)
 				.build();
 	}
 
@@ -113,7 +116,10 @@ public class ModConfigScreen {
 						defaultOf(field, Double.class),
 						() -> (Double) get(field),
 						v -> set(field, v))
-				.controller(o -> DoubleSliderControllerBuilder.create(o))
+				.controller(o -> DoubleSliderControllerBuilder.create(o)
+						.range((double) ann.min(), (double) ann.max())
+						.step((double) ann.interval())
+				)
 				.build();
 	}
 

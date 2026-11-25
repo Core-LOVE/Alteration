@@ -2,7 +2,11 @@ package io.github.katebulka.alteration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 import io.github.katebulka.alteration.annotation.ConfigOption;
 
 import java.awt.*;
@@ -16,11 +20,64 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 public class ModConfig {
-	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+	private static final TypeAdapter<Color> COLOR_ADAPTER = new TypeAdapter<>() {
+		@Override
+		public void write(JsonWriter out, Color value) throws IOException {
+			if (value == null) {
+				out.nullValue();
+				return;
+			}
+
+			out.value(value.getRGB());
+		}
+
+		@Override
+		public Color read(JsonReader in) throws IOException {
+			if (in.peek() == JsonToken.NULL) {
+				in.nextNull();
+				return null;
+			}
+
+			return new Color(in.nextInt(), true);
+		}
+	};
+
+	private static final Gson GSON = new GsonBuilder()
+			.setPrettyPrinting()
+			.registerTypeAdapter(Color.class, COLOR_ADAPTER)
+			.create();
+
 	private static final File CONFIG_FILE = ModHelper.getConfigDirectory().resolve("alteration.json").toFile();
 	public static ModConfig INSTANCE = new ModConfig();
 
 	//
+
+	@ConfigOption(key = "burst_door", category = "gameplay")
+	public boolean burstDoor = true;
+
+	@ConfigOption(key = "close_doors", category = "gameplay")
+	public boolean closeDoors = true;
+
+	@ConfigOption(key = "affect_trapdoors", category = "gameplay")
+	public boolean affectTrapdoors = true;
+
+	@ConfigOption(key = "affect_nearby_doors", category = "gameplay")
+	public boolean affectNearbyDoors = true;
+
+	@ConfigOption(key = "change_gravity", category = "gameplay")
+	public boolean changeGravity = true;
+
+	@ConfigOption(key = "change_gravity_min_y", category = "gameplay", min = -9999F, max = 9999F)
+	public int changeGravityMinY = 256;
+
+	@ConfigOption(key = "change_gravity_max_y", category = "gameplay", min = -9999F, max = 9999F)
+	public int changeGravityMaxY = 320;
+
+	@ConfigOption(key = "gravity", category = "gameplay", min = 0f, max = 1f)
+	public double gravity = 0.3D;
+
+	@ConfigOption(key = "affect_particles", category = "visual")
+	public boolean gravityAffectParticles = true;
 
 	@ConfigOption(key = "item_ignore_blocks", category = "gameplay")
 	public boolean itemIgnoreBlocks = true;

@@ -21,7 +21,30 @@
   "config.alteration.option.easy_block_replace": "Easy Replace",
   "config.alteration.option.fire_immune_items": "Fire-Immune Items",
 
+  "config.alteration.option.change_gravity": "Terraria Space",
+  "config.alteration.option.change_gravity_min_y": "Terraria Space (Min. Y)",
+  "config.alteration.option.change_gravity_max_y": "Terraria Space (Max. Y)",
+  "config.alteration.option.gravity": "Terraria Space (Multiplier)",
+  "config.alteration.option.affect_particles": "Terraria Space (Affect Particles)",
 
+  "config.alteration.option.burst_door": "Burst Doors Open",
+  "config.alteration.option.close_doors": "Close Bust Doors",
+  "config.alteration.option.affect_trapdoors": "Burst Trapdoors",
+  "config.alteration.option.affect_nearby_doors": "Burst Nearby Doors",
+
+
+
+
+  "config.alteration.tooltip.burst_door": "Burst doors open by sprinting towards them",
+  "config.alteration.tooltip.close_doors": "Close bust doors afterwards",
+  "config.alteration.tooltip.affect_trapdoors": "",
+  "config.alteration.tooltip.affect_nearby_doors": "",
+
+  "config.alteration.tooltip.change_gravity": "Gravity gets lower the higher you are",
+  "config.alteration.tooltip.change_gravity_min_y": "",
+  "config.alteration.tooltip.change_gravity_max_y": "",
+  "config.alteration.tooltip.gravity": "",
+  "config.alteration.tooltip.affect_particles": "Lets Terraria Space feature affect Particles too",
 
   "config.alteration.tooltip.item_ignore_blocks": "Items can now pass through certain blocks (such as leaves).",
   "config.alteration.tooltip.mixed_lights": "Mix between Smooth and Flat Lighting",

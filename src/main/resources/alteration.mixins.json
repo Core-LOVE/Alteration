@@ -7,13 +7,19 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "accessor.TrapDoorBlockAccessor",
+
     "ItemEntityMixin",
-    "BlockBehaviourMixin"
+    "BlockBehaviourMixin",
+    "EntityMixin",
+    "LivingEntityMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
     "client.GuiMixin",
     "client.AbstractButtonMixin",
     "client.AbstractSliderButtonMixin",
+    "client.ParticleMixin",
 
     "sodium.SmoothLightPipelineMixin"
   ]

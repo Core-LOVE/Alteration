@@ -13,6 +13,9 @@ public class ModBlockTags {
 	public static final TagKey<Block> ITEM_PASS_THROUGH = register("item_pass_through");
 	public static final TagKey<Block> REPLACEABLE = register("replaceable");
 
+	public static final TagKey<Block> BUST_DOORS = register("bust_doors");
+	public static final TagKey<Block> BUST_TRAPDOORS = register("bust_trapdoors");
+
 	public static void register() {
 
 	}

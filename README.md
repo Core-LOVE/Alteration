@@ -4,7 +4,7 @@
 <a href='https://neoforged.net/'><img alt="curseforge" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/curseforge_vector.svg">
 </a><a href='https://neoforged.net/'><img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg"></a>
 
-**Alteration** is a multi-platform Minecraft mod focused on adding random tweaks, visual changes, small backports and etc. Useful for modpacks!
+**Alteration** is a Minecraft mod focused on adding random tweaks, visual changes, small backports and etc. Useful for modpacks!
 
 ## Features
 ### Oxygen Bar Backport (<=1.21.1)

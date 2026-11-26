@@ -46,7 +46,6 @@ import java.util.ArrayList;
 /*import net.minecraft.client.gui.GuiGraphicsExtractor;
  *///?} else {
 import net.minecraft.client.gui.GuiGraphics;
-import net.neoforged.fml.common.Mod;
 //?}
 
 // https://github.com/crastinator/tooltips-improved
@@ -67,7 +66,7 @@ public final class ModTooltips {
 
 		Preview preview = null;
 
-		if (ModConfig.INSTANCE.bookTooltip) preview = book(stack, 6);
+		if (ModConfig.INSTANCE.bookTooltip) preview = book(stack, ModConfig.INSTANCE.bookTooltipLines);
 		if (preview == null && ModConfig.INSTANCE.bannerTooltip) preview = banner(stack);
 
 		return Optional.ofNullable(preview);

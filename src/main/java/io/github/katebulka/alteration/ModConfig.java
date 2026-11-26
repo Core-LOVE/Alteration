@@ -106,6 +106,9 @@ public class ModConfig {
 	@ConfigOption(key = "book_tooltip", category = "visual")
 	public boolean bookTooltip = true;
 
+	@ConfigOption(key = "book_tooltip_lines", category = "visual", min = 1f, max = 14f)
+	public int bookTooltipLines = 7;
+
 	@ConfigOption(key = "tooltip_can_expand", category = "visual")
 	public boolean tooltipCanExpand = true;
 
@@ -135,6 +138,14 @@ public class ModConfig {
 
 	@ConfigOption(key = "ao_falling_blocks", category = "visual")
 	public boolean aoFallingBlocks = true;
+
+	@ConfigOption(key = "sticky_chains", category = "gameplay")
+	public boolean stickyChains = true;
+
+//	@ConfigOption(key = "gunpowder_interaction", category = "interaction")
+//	public enum gunpowderInteraction {
+//
+//	}
 
 //	@ConfigOption(key = "chainmailed", category = "gameplay")
 //	public boolean chainmailed = true;

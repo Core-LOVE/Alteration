@@ -32,8 +32,27 @@
   "config.alteration.option.affect_trapdoors": "Burst Trapdoors",
   "config.alteration.option.affect_nearby_doors": "Burst Nearby Doors",
 
+  "config.alteration.option.better_trim_tooltip": "Better Trim Tooltip",
+  "config.alteration.option.book_tooltip": "Book Tooltip",
+  "config.alteration.option.banner_tooltip": "Banners Tooltip",
+  "config.alteration.option.tooltip_can_expand": "Better Trim Tooltip (Can Expand?)",
+  "config.alteration.option.ao_falling_blocks": "Falling Blocks w/ Ambient Occlusion",
+  "config.alteration.option.sound_proof": "Wool Sound Proof",
+  "config.alteration.option.sound_proof_distance": "Wool Sound Proof (Distance)",
+  "config.alteration.option.sound_proof_interval": "Wool Sound Proof (Interval)",
+
+  "config.alteration.option.sticky_chains": "Sticky Chains",
+  "config.alteration.option.book_tooltip_lines": "Book Tooltip (Lines)",
 
 
+  "config.alteration.tooltip.better_trim_tooltip": "Shorter Trim Tooltip",
+  "config.alteration.tooltip.book_tooltip": "Tooltip for Written Books",
+  "config.alteration.tooltip.banner_tooltip": "Tooltip for Banners",
+  "config.alteration.tooltip.tooltip_can_expand": "",
+  "config.alteration.tooltip.ao_falling_blocks": "Adds Ambient Occlusion to Falling Blocks.",
+  "config.alteration.tooltip.sound_proof": "Blocks sounds when wool is placed between the sound source and the player (Client-side)",
+  "config.alteration.tooltip.sound_proof_distance": "",
+  "config.alteration.tooltip.sound_proof_interval": "",
 
   "config.alteration.tooltip.burst_door": "Burst doors open by sprinting towards them",
   "config.alteration.tooltip.close_doors": "Close bust doors afterwards",

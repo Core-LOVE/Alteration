@@ -17,6 +17,7 @@ public class ModBlockTags {
 	public static final TagKey<Block> BUST_TRAPDOORS = register("bust_trapdoors");
 
 	public static final TagKey<Block> SOUNDBLOCKERS = register("soundblockers");
+	public static final TagKey<Block> STICKY_CHAINS = register("sticky_chains");
 
 	public static void register() {
 

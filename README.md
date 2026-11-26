@@ -43,6 +43,38 @@ You can now change default text hover text! By default it's Yellow.
 
 ---
 
+### Sticky Chains
+Chains have sticky properties across axis now.
+
+![Sticky Chains Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/sticky_chains.png)
+
+---
+
+### Soul Fire Candles
+Candles can now emit Soul Fire particles when there's soul fire base blocks below. (Also works with Candleholders from Supplementaries and works with Cupric fire from Caverns & Chasms)
+
+![Soul Fire Candles Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/soul_fire_candles.png)
+
+---
+
+### New/Better Tooltips
+Banners and Written Books now have their own tooltips.
+
+![Book Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/book_tooltip.png)<br>
+
+![Banner Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/banner_tooltip.png)<br>
+
+Armor with Trims also has a shorter tooltip now.
+
+![Banner Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/trim_tooltip.png)
+
+---
+
+### Wool Sound Proofing
+Blocks sounds when wool is placed between the sound source and the player. (Client-side)
+
+---
+
 ### Terraria "Space"
 Entities have lower gravity when they're too high up.
 
@@ -60,3 +92,9 @@ Now you can replace flowers and other similar blocks with other blocks more easi
 
 ### Heal Sound
 Original feature, plays a new healing sound when health goes up.
+
+---
+### Used code:
+* https://modrinth.com/mod/woolproofed
+* https://modrinth.com/mod/tooltips-improved
+* https://modrinth.com/mod/burst-door-open

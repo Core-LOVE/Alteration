@@ -14,7 +14,8 @@
     "BlockBehaviourMixin",
     "EntityMixin",
     "LivingEntityMixin",
-    "ServerPlayerMixin"
+    "ServerPlayerMixin",
+    "PistonStructureResolverMixin"
   ],
   "client": [
     "client.GuiMixin",

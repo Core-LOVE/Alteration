@@ -29,6 +29,7 @@ public class ModConfigScreen {
 		put("gameplay", "config.alteration.category.gameplay");
 		put("visual", "config.alteration.category.visual");
 		put("audial", "config.alteration.category.audial");
+		put("integration", "config.alteration.category.integration");
 	}};
 
 	public static Screen createScreen(Screen parent) {

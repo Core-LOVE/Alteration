@@ -1,11 +1,16 @@
 package io.github.katebulka.alteration.mixin.client;
 
+import com.google.gson.JsonObject;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
+import io.github.katebulka.alteration.client.loader.CandleFlameLoader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -33,6 +38,17 @@ public abstract class AbstractCandleBlockMixin extends Block {
 
 	@Inject(method = "addParticlesAndSound", at = @At("HEAD"), cancellable = true)
 	private static void alteration$addParticlesAndSound(Level level, Vec3 vec, RandomSource rand, CallbackInfo cl) {
+		BlockPos belowPos = BlockPos.containing(vec).below();
+		BlockState block = level.getBlockState(belowPos);
+
+		ResourceLocation flame = CandleFlameLoader.getFlameBlock(block);
+
+		if (flame == null) return;
+
+		ParticleType<?> type = BuiltInRegistries.PARTICLE_TYPE.get(flame);
+
+		if (type == null) return;
+
 		float f = rand.nextFloat();
 
 		if (f < 0.3F) {
@@ -43,16 +59,7 @@ public abstract class AbstractCandleBlockMixin extends Block {
 			}
 		}
 
-		SimpleParticleType p = ParticleTypes.SMALL_FLAME;
-
-		BlockPos belowPos = BlockPos.containing(vec).below();
-		BlockState block = level.getBlockState(belowPos);
-
-		if (block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS)) {
-			p = ParticleTypes.SOUL_FIRE_FLAME;
-		}
-
-		level.addParticle(p, vec.x, vec.y, vec.z, (double)0.0F, (double)0.0F, (double)0.0F);
+		level.addParticle((SimpleParticleType) type, vec.x, vec.y, vec.z, (double)0.0F, (double)0.0F, (double)0.0F);
 
 		cl.cancel();
 	}

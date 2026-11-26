@@ -133,6 +133,15 @@ public class ModConfig {
 	@ConfigOption(key = "sound_proof_interval", category = "audial", min = 0F, max = 1F)
 	public float soundProofInterval = 0.5F;
 
+	@ConfigOption(key = "ao_falling_blocks", category = "visual")
+	public boolean aoFallingBlocks = true;
+
+//	@ConfigOption(key = "chainmailed", category = "gameplay")
+//	public boolean chainmailed = true;
+//
+//	@ConfigOption(key = "chainmailed_sounds", category = "gameplay")
+//	public boolean chainmailedSounds = true;
+
 	//
 
 	public static void load() {

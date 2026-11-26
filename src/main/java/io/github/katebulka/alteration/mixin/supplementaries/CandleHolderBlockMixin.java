@@ -2,6 +2,7 @@ package io.github.katebulka.alteration.mixin.supplementaries;
 
 import io.github.katebulka.alteration.client.loader.CandleFlameLoader;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.CandleHolderBlock;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.LightUpWaterBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
@@ -13,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -27,16 +29,22 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 @Mixin(
 		value = CandleHolderBlock.class,
 		remap = false
 )
-public abstract class CandleHolderMixin {
+public abstract class CandleHolderBlockMixin extends LightUpWaterBlock {
 	@Shadow
 	@Final
 	public Supplier<ParticleType<? extends ParticleOptions>> particle;
+
+	@Shadow
+	@Final
+	public Function<BlockState, List<Vec3>> particleOffsets;
 
 	@Shadow
 	@Final
@@ -45,6 +53,10 @@ public abstract class CandleHolderMixin {
 	@Shadow
 	@Final
 	public static DirectionProperty FACING;
+
+	protected CandleHolderBlockMixin(Properties properties) {
+		super(properties);
+	}
 
 	@Unique
 	@Nullable
@@ -58,31 +70,38 @@ public abstract class CandleHolderMixin {
 		return type;
 	}
 
-	@Inject(method = "addParticlesAndSound", at = @At("HEAD"), cancellable = true)
-	private void alteration$addParticlesAndSound(Level level, Vec3 offset, RandomSource random, CallbackInfo cl) {
-		BlockPos pos = BlockPos.containing(offset);
-		BlockState state = level.getBlockState(pos);
+	@Inject(method = "animateTick", at = @At("HEAD"), cancellable = true)
+	private void alteration$animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
+		if (!(state.getBlock() instanceof CandleHolderBlock)) {
+			return;
+		}
+
+		AttachFace face = state.getValue(FACE);
+
+		if (face == null) {
+			return;
+		}
 
 		byte attach = 0;
 
-		switch ((AttachFace) state.getValue(FACE)) {
-			case CEILING:
-				attach = 2; break;
-			case FLOOR:
-				attach = 1; break;
-			case WALL:
-				switch ((Direction)state.getValue(FACING)) {
-					case SOUTH:
-						attach = 3; break;
-					case WEST:
-						attach = 4; break;
-					case EAST:
-						attach = 5; break;
-					default:
-						attach = 6; break;
-				}
-			default:
-				throw new MatchException((String)null, (Throwable)null);
+		switch (face) {
+			case CEILING -> attach = 2;
+			case FLOOR -> attach = 1;
+			case WALL -> {
+				Direction facing = state.getValue(FACING).getOpposite();
+
+				if (facing == null) return;
+
+				attach = switch (facing) {
+					case SOUTH -> 3;
+					case WEST -> 5;
+					case EAST -> 6;
+					default -> 4;
+				};
+			}
+			default -> {
+				return;
+			}
 		}
 
 		if (attach == 0) return;
@@ -102,31 +121,38 @@ public abstract class CandleHolderMixin {
 			BlockState block = level.getBlockState(belowPos);
 			type = getFlame(block);
 		} else if (attach == 4) { // NORTH
-			BlockPos belowPos = pos.north();
-			BlockState block = level.getBlockState(belowPos);
+			BlockPos p = pos.north();
+			BlockState block = level.getBlockState(p);
 			type = getFlame(block);
 		} else if (attach == 5) { // WEST
-			BlockPos belowPos = pos.west();
-			BlockState block = level.getBlockState(belowPos);
+			BlockPos p = pos.west();
+			BlockState block = level.getBlockState(p);
 			type = getFlame(block);
 		} else if (attach == 6) { // EAST
-			BlockPos belowPos = pos.east();
-			BlockState block = level.getBlockState(belowPos);
+			BlockPos p = pos.east();
+			BlockState block = level.getBlockState(p);
 			type = getFlame(block);
 		}
 
 		if (type == null) return;
 
-		float f = random.nextFloat();
+		List<Vec3> offsets = this.particleOffsets.apply(state);
 
-		if (f < 0.3F) {
-			level.addParticle(ParticleTypes.SMOKE, offset.x, offset.y, offset.z, (double)0.0F, (double)0.0F, (double)0.0F);
-			if (f < 0.17F) {
-				level.playLocalSound(offset.x + (double)0.5F, offset.y + (double)0.5F, offset.z + (double)0.5F, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
+		for (Vec3 v : offsets) {
+			Vec3 world = v.add(pos.getX(), pos.getY(), pos.getZ());
+			float f = rand.nextFloat();
+
+			if (f < 0.3F) {
+				level.addParticle(ParticleTypes.SMOKE, world.x, world.y, world.z, 0, 0, 0);
+
+				if (f < 0.17F) {
+					level.playLocalSound(world.x + 0.5, world.y + 0.5, world.z + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
+				}
 			}
+
+			level.addParticle((ParticleOptions) type, world.x, world.y, world.z, 0, 0, 0);
 		}
 
-		level.addParticle((ParticleOptions) type, offset.x, offset.y, offset.z, (double)0.0F, (double)0.0F, (double)0.0F);
-		cl.cancel();
+		ci.cancel();
 	}
 }

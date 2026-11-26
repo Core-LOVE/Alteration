@@ -23,5 +23,9 @@ public class ModRegistry {
 		ModSoundEvents.MAP.forEach((id, supplier) -> {
 			Registry.register(BuiltInRegistries.SOUND_EVENT, id, supplier.get());
 		});
+
+		ModAttributes.MAP.forEach((id, supplier) -> {
+			Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, id, supplier.get());
+		});
 	}
 }

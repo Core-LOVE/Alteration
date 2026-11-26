@@ -25,12 +25,7 @@ import java.util.function.Consumer;
 		value = DecoratedPotTrim.class,
 		remap = false
 )
-public abstract class DecoratedPotTrimMixin implements IMixinConfigPlugin {
-	@Override
-	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-		return ModHelper.isModLoaded("clayworks");
-	}
-
+public abstract class DecoratedPotTrimMixin {
 	@Inject(method = "addToTooltip(Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/function/Consumer;Lnet/minecraft/world/item/TooltipFlag;)V", at = @At("HEAD"), cancellable = true)
 	private void alteration$addToTooltip(Item.TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag, CallbackInfo ci) {
 		if (!ModConfig.INSTANCE.betterTrimTooltip) return;

@@ -22,6 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.fml.ModList;
 //?} forge {
@@ -33,7 +34,7 @@ public class ModHelper {
 		//? if fabric {
 		/*return FabricLoader.getInstance().isModLoaded(modId);
 		 *///?} else {
-		return ModList.get().isLoaded(modId);
+		return FMLLoader.getLoadingModList().getModFileById(modId) != null;
 		//?}
 	}
 

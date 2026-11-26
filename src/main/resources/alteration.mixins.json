@@ -3,6 +3,7 @@
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "${java}",
+  "plugin": "io.github.katebulka.alteration.AlterationMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   },
@@ -24,9 +25,10 @@
     "client.ItemStackMixin",
     "client.SoundManagerMixin",
     "client.AbstractCandleBlockMixin",
+    "client.FallingBlockRendererMixin",
 
     "sodium.SmoothLightPipelineMixin",
-
-    "clayworks.DecoratedPotTrimMixin"
+    "clayworks.DecoratedPotTrimMixin",
+    "supplementaries.CandleHolderBlockMixin"
   ]
 }

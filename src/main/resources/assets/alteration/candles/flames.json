@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": {
+    "minecraft:soul_fire_base_blocks": "minecraft:soul_fire_flame",
+    "caverns_and_chasms:cupric_fire_base_blocks": "caverns_and_chasms:small_cupric_fire_flame"
+  }
+}

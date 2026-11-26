@@ -96,6 +96,7 @@ dependencies {
 
 	compileOnly("maven.modrinth:supplementaries:JuYIXjpy")
 	compileOnly("maven.modrinth:moonlight:FhoIf5nd")
+	compileOnly("maven.modrinth:supplementaries-squared:1uYFhgHN")
 }
 
 tasks.named("createMinecraftArtifacts") {

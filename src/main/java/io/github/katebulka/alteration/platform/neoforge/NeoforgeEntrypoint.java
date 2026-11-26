@@ -3,6 +3,7 @@ package io.github.katebulka.alteration.platform.neoforge;
 //? neoforge {
 
 import io.github.katebulka.alteration.AlterationMod;
+import io.github.katebulka.alteration.registry.ModAttributes;
 import io.github.katebulka.alteration.registry.ModBlocks;
 import io.github.katebulka.alteration.registry.ModItems;
 import io.github.katebulka.alteration.registry.ModSoundEvents;
@@ -42,6 +43,7 @@ public class NeoforgeEntrypoint {
 
 	public static void register(IEventBus modEventBus) {
 		registerBus(modEventBus, BuiltInRegistries.SOUND_EVENT, ModSoundEvents.MAP);
+		registerBus(modEventBus, BuiltInRegistries.ATTRIBUTE, ModAttributes.MAP);
 //		registerBus(modEventBus, BuiltInRegistries.BLOCK, ModBlocks.MAP);
 //		registerBus(modEventBus, BuiltInRegistries.ITEM, ModItems.MAP);
 	}

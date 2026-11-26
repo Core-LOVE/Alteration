@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerPlayerGameMode;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +16,9 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,6 +40,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://modrinth.com/mod/chainmailed
 @Mixin(
 		value = ServerPlayer.class
 )
@@ -49,4 +53,10 @@ public abstract class ServerPlayerMixin extends Player {
 	private void alteration$tick(CallbackInfo ci) {
 		ModBurstHelper.tick((ServerPlayer) (Object) this);
 	}
+
+//	@Shadow
+//	public abstract void setCamera(@Nullable Entity p_9214_);
+//
+//	@Shadow @Final
+//	public ServerPlayerGameMode gameMode;
 }

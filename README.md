@@ -94,6 +94,11 @@ Now you can replace flowers and other similar blocks with other blocks more easi
 Original feature, plays a new healing sound when health goes up.
 
 ---
+
+### Ambient Occlusion for Falling Blocks
+Falling Blocks have Ambient Occlusion now.
+
+---
 ### Used code:
 * https://modrinth.com/mod/woolproofed
 * https://modrinth.com/mod/tooltips-improved

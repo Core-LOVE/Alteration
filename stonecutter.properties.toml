@@ -2,7 +2,7 @@
 id = "alteration"
 name = "Alteration"
 group = "io.github.katebulka"
-version = "1.0.1"
+version = "1.0.3"
 channel_tag = ""
 description = "A mod that adds various random tweaks"
 authors = ["KateBulka"]

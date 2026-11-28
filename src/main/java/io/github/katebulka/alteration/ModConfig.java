@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import io.github.katebulka.alteration.annotation.ConfigOption;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.io.File;
@@ -49,6 +50,25 @@ public class ModConfig {
 
 	private static final File CONFIG_FILE = ModHelper.getConfigDirectory().resolve("alteration.json").toFile();
 	public static ModConfig INSTANCE = new ModConfig();
+
+	public enum ServerEntryRenderPos {
+		AFTER_NAME,
+		BEHIND_COUNT,
+		LEFT,
+		RIGHT
+	}
+
+	public enum WorldEntryRenderPos {
+		TOP_RIGHT,
+		LEFT,
+		RIGHT
+	}
+
+	public enum GunpowderBlockInteraction {
+		NONE,
+		DESTROY,
+		EXPLODE
+	}
 
 	//
 
@@ -141,6 +161,39 @@ public class ModConfig {
 
 	@ConfigOption(key = "sticky_chains", category = "gameplay")
 	public boolean stickyChains = true;
+
+//	@ConfigOption(key = "play_time", category = "visual")
+//	public boolean playTime = true;
+//
+//	@ConfigOption(key = "play_time_color", category = "visual")
+//	public Color playTimeColor = new Color(128, 128, 128);
+
+//	@ConfigOption(key = "world_play_time_position", category = "visual")
+//	public WorldEntryRenderPos worldPlayTimePosition = WorldEntryRenderPos.TOP_RIGHT;
+
+//	@ConfigOption(key = "server_play_time_position", category = "visual")
+//	public ServerEntryRenderPos serverPlayTimePosition = ServerEntryRenderPos.AFTER_NAME;
+
+	@ConfigOption(key = "chains_suspend_falling", category = "gameplay")
+	public boolean chainsSuspendFalling = true;
+
+	@ConfigOption(key = "darker_ao", category = "visual")
+	public boolean darkerAmbientOcclusion = true;
+
+	@ConfigOption(key = "darker_water", category = "visual")
+	public boolean darkerWater = true;
+
+	@ConfigOption(key = "shady_faces", category = "visual")
+	public boolean shadyFaces = true;
+
+	@ConfigOption(key = "gunpowder_block_reaction", category = "integration")
+	public GunpowderBlockInteraction gunpowderBlockReaction = GunpowderBlockInteraction.DESTROY;
+
+	@ConfigOption(key = "stripped_bonemeal", category = "gameplay")
+	public boolean strippedLogBonemeal = true;
+
+	@ConfigOption(key = "lightning_prevention", category = "gameplay")
+	public boolean lightningPrevention = true;
 
 //	@ConfigOption(key = "gunpowder_interaction", category = "interaction")
 //	public enum gunpowderInteraction {

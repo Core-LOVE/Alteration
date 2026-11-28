@@ -1,5 +1,6 @@
 package io.github.katebulka.alteration.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import io.github.katebulka.alteration.ModConfig;
 import io.github.katebulka.alteration.registry.ModBlockTags;
 import net.minecraft.core.BlockPos;
@@ -23,6 +24,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockBehaviour.class)
 public abstract class BlockBehaviourMixin {
+	@ModifyReturnValue(method = "getShadeBrightness(Lnet/minecraft/entity/player/BlockState;Lnet/minecraft/entity/player/BlockGetter;Lnet/minecraft/util/math/BlockPos;)F",
+			at = @At("RETURN"))
+	private float alteration$getShadeBrightness(float original, BlockState p_60472_, BlockGetter p_60473_, BlockPos p_60474_) {
+		return (ModConfig.INSTANCE.darkerAmbientOcclusion && original == 0.2F) ? 0: original;
+	}
+
 	@Inject(method = "canBeReplaced", at = @At("RETURN"), cancellable = true)
 	public void alteration$canBeReplaced(BlockState blockState, BlockPlaceContext blockPlaceContext, CallbackInfoReturnable cir) {
 		if (!ModConfig.INSTANCE.easyBlockReplace) return;

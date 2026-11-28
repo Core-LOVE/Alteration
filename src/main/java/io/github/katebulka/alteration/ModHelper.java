@@ -1,7 +1,12 @@
 package io.github.katebulka.alteration;
+
 import com.mojang.authlib.minecraft.client.MinecraftClient;
+import io.github.katebulka.alteration.registry.ModBlockTags;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
+
+import java.awt.*;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
@@ -15,16 +20,25 @@ import java.util.stream.Collectors;
 
 //?} neoforge {
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.fml.ModList;
+import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3d;
 //?} forge {
 
 //?}
@@ -58,6 +72,31 @@ public class ModHelper {
 		 *///?} else {
 		return Screen.hasShiftDown();
 		//?}
+	}
+
+	public static boolean getChained(Level level, BlockPos pos, BlockState state) {
+		if (!ModConfig.INSTANCE.chainsSuspendFalling) return false;
+
+		for (Direction dir : Direction.values()) {
+			BlockPos neighborPos = pos.relative(dir);
+			BlockState neighbor = level.getBlockState(neighborPos);
+
+			if (!neighbor.is(ModBlockTags.STICKY_CHAINS) || !neighbor.hasProperty(BlockStateProperties.AXIS)) {
+				continue;
+			}
+
+			Direction.Axis axis = neighbor.getValue(BlockStateProperties.AXIS);
+
+			if (axis == Direction.Axis.Y && dir.getAxis() == Direction.Axis.Y) {
+				return true;
+			}
+
+			if (axis != Direction.Axis.Y && dir.getAxis() == axis) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public static double getSafeFallDistance(Entity self, double d0) {
@@ -132,6 +171,44 @@ public class ModHelper {
 		}
 
 		return c;
+	}
+
+	private static final ResourceLocation TIME_ICON = ResourceLocation.fromNamespaceAndPath(AlterationMod.MOD_ID, "textures/gui/sprites/time_icon.png");
+
+	public static @Nullable Component getPlayTimeComponent(int ticks) {
+		if (ticks <= 0) {
+			return null;
+		}
+
+		double hours = (ticks / 20.0) / 3600.0;
+
+		return Component.translatable("worldplaytime.format", Component.literal(hours >= 100.0 ? String.valueOf((int)hours) : String.format(Locale.US, "%.1f", hours)));
+	}
+
+	public static int getWholePlayTimeWidth(int ticks) {
+		Component component = getPlayTimeComponent(ticks);
+
+		if (component == null) {
+			return 0;
+		}
+
+		Minecraft minecraft = Minecraft.getInstance();
+
+		return minecraft.font.width(component) + 11;
+	}
+
+	public static void renderPlayTime(GuiGraphics guiGraphics, int x, int y, int playTimeTicks, Color color) {
+		Minecraft minecraft = Minecraft.getInstance();
+		Component component = getPlayTimeComponent(playTimeTicks);
+
+		if (component == null) {
+			return;
+		}
+
+		guiGraphics.setColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+		guiGraphics.blit(TIME_ICON, x, y, 0.f, 0.f, 9, 9, 9, 9);
+		guiGraphics.setColor(1.f, 1.f, 1.f, 1.f);
+		guiGraphics.drawString(minecraft.font, component, x + 11, y + 1, color.getRGB(), false);
 	}
 
 	public static class Config {

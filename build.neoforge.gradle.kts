@@ -94,6 +94,10 @@ dependencies {
 	compileOnly("maven.modrinth:1iicrEO3:SpFNxWZa")
 	compileOnly("maven.modrinth:VsM5EDoI:FHOjk8Ez")
 
+	compileOnly("maven.modrinth:caverns-and-chasms:bVK4SxKp")
+
+	compileOnly("maven.modrinth:sable:fg9dTRz9")
+
 	compileOnly("maven.modrinth:supplementaries:JuYIXjpy")
 	compileOnly("maven.modrinth:moonlight:FhoIf5nd")
 	compileOnly("maven.modrinth:supplementaries-squared:1uYFhgHN")

@@ -70,6 +70,25 @@ Armor with Trims also has a shorter tooltip now.
 
 ---
 
+### Chains Suspend Falling Blocks
+Chains can now suspend falling blocks.
+
+![Chains Suspend Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/chains_suspend.png)
+
+---
+
+### Bonemealing Stripped Logs
+Bonemeal can now be used to "unstrip" logs.
+
+![Bonemeal Unstrip Image](https://raw.githubusercontent.com/Core-LOVE/Alteration/refs/heads/main/images/unstrip.png)
+
+---
+
+### Gunpowder Block's reaction to Lava
+When Caverns & Chasms is installed, Gunpowder Block can now have 3 reactions to Lava (toggleable): None, Break or Explode.
+
+---
+
 ### Wool Sound Proofing
 Blocks sounds when wool is placed between the sound source and the player. (Client-side)
 
@@ -99,7 +118,19 @@ Original feature, plays a new healing sound when health goes up.
 Falling Blocks have Ambient Occlusion now.
 
 ---
+
+### Lightning Prevention
+Adds a blacklist for Lightning strike base blocks and a whitelist for Lightning fire base blocks.
+
+---
+
+### Classical Thingies
+Darker Ambient Occlusion, Darker Water & Shady Faces tweaks (toggleable).
+
+---
 ### Used code:
 * https://modrinth.com/mod/woolproofed
 * https://modrinth.com/mod/tooltips-improved
 * https://modrinth.com/mod/burst-door-open
+* https://modrinth.com/mod/revertbark
+* https://modrinth.com/mod/world-play-time

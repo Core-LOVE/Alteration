@@ -6,6 +6,7 @@
   "config.alteration.category.gameplay": "Gameplay",
   "config.alteration.category.visual": "Visual",
   "config.alteration.category.audial": "Sounds",
+  "config.alteration.category.integration": "Integration",
 
   "config.alteration.option.item_ignore_blocks": "Item-Passable Blocks",
   "config.alteration.option.mixed_lights": "Terraria Lighting",
@@ -44,6 +45,24 @@
   "config.alteration.option.sticky_chains": "Sticky Chains",
   "config.alteration.option.book_tooltip_lines": "Book Tooltip (Lines)",
 
+  "config.alteration.option.darker_ao": "Darker Ambient Occlusion",
+  "config.alteration.option.darker_water": "Darker Water",
+  "config.alteration.option.shady_faces": "Shady Block Faces",
+  "config.alteration.option.chains_suspend_falling": "Chains Suspend Falling Blocks",
+  "config.alteration.option.stripped_bonemeal": "Stripped Bonemeal",
+  "config.alteration.option.gunpowder_block_reaction": "Gunpowder Block's Lava Reaction",
+  "config.alteration.option.lightning_prevention": "Lightning Prevention",
+
+
+
+
+  "config.alteration.tooltip.lightning_prevention": "Adds a blacklist for Lightning strike base blocks and a whitelist for Lightning fire base blocks",
+  "config.alteration.tooltip.darker_ao": "",
+  "config.alteration.tooltip.darker_water": "",
+  "config.alteration.tooltip.shady_faces": "",
+  "config.alteration.tooltip.chains_suspend_falling": "When attached to chains, falling blocks won't fall",
+  "config.alteration.tooltip.stripped_bonemeal": "Bonemeal can be used to unstrip logs",
+  "config.alteration.tooltip.gunpowder_block_reaction": "Gunpowder Block's reaction to Lava (Requires Caverns & Chasms)",
 
   "config.alteration.tooltip.better_trim_tooltip": "Shorter Trim Tooltip",
   "config.alteration.tooltip.book_tooltip": "Tooltip for Written Books",

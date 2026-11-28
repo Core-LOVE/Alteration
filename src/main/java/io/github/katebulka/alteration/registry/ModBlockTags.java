@@ -19,6 +19,9 @@ public class ModBlockTags {
 	public static final TagKey<Block> SOUNDBLOCKERS = register("soundblockers");
 	public static final TagKey<Block> STICKY_CHAINS = register("sticky_chains");
 
+	public static final TagKey<Block> LIGHTNING_FIRE_BASE_BLOCKS = register("lightning_fire_base_blocks");
+	public static final TagKey<Block> PREVENT_LIGHTNING_STRIKE_BASE_BLOCKS = register("prevent_lightning_strike_base_blocks");
+
 	public static void register() {
 
 	}

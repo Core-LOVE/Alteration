@@ -29,7 +29,8 @@ public class AlterationMixinPlugin implements IMixinConfigPlugin {
 	private static final Map<String, BooleanSupplier> APPLY_MAP = Map.of(
 		"io.github.katebulka.alteration.mixin.sodium.SmoothLightPipelineMixin",     () -> isModLoaded("sodium"),
 		"io.github.katebulka.alteration.mixin.supplementaries.CandleHolderMixin", 	() -> isModLoaded("supplementaries"),
-		"io.github.katebulka.alteration.mixin.clayworks.DecoratedPotTrimMixin", 	() -> isModLoaded("clayworks")
+		"io.github.katebulka.alteration.mixin.clayworks.DecoratedPotTrimMixin", 	() -> isModLoaded("clayworks"),
+		"io.github.katebulka.alteration.mixin.cnc.GunpowderBlockMixin", 			() -> isModLoaded("caverns_and_chasms")
 	);
 
 	@Override

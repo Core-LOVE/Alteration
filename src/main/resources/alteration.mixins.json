@@ -9,13 +9,22 @@
   },
   "mixins": [
     "accessor.TrapDoorBlockAccessor",
+    "accessor.AxeItemAccessor",
 
     "ItemEntityMixin",
     "BlockBehaviourMixin",
     "EntityMixin",
     "LivingEntityMixin",
     "ServerPlayerMixin",
-    "PistonStructureResolverMixin"
+    "PistonStructureResolverMixin",
+    "FallingBlockMixin",
+    "PointedDripstoneBlockMixin",
+    "ScaffoldingBlockMixin",
+    "ServerLevelMixin",
+    "LightningBoltMixin",
+    "BonemealItemMixin",
+
+    "cnc.GunpowderBlockMixin"
   ],
   "client": [
     "client.GuiMixin",
@@ -27,8 +36,10 @@
     "client.SoundManagerMixin",
     "client.AbstractCandleBlockMixin",
     "client.FallingBlockRendererMixin",
+    "client.AmbientOcclusionFaceMixin",
 
     "sodium.SmoothLightPipelineMixin",
+
     "clayworks.DecoratedPotTrimMixin",
     "supplementaries.CandleHolderBlockMixin"
   ]

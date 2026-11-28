@@ -135,14 +135,17 @@ public class ModConfigScreen {
 				.build();
 	}
 
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	private static Option<Enum> buildEnum(Field field, ConfigOption ann) {
+		Class<? extends Enum> enumClass = (Class<? extends Enum>) field.getType();
+
 		return Option.<Enum>createBuilder()
 				.name(name(ann)).description(desc(ann))
 				.binding(
 						defaultOf(field, Enum.class),
 						() -> (Enum) get(field),
 						v -> set(field, v))
-				.controller(o -> EnumControllerBuilder.create(o))
+				.controller(o -> EnumControllerBuilder.create(o).enumClass((Class) enumClass))
 				.build();
 	}
 

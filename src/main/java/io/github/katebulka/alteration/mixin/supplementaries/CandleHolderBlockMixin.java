@@ -72,6 +72,10 @@ public abstract class CandleHolderBlockMixin extends LightUpWaterBlock {
 
 	@Inject(method = "animateTick", at = @At("HEAD"), cancellable = true)
 	private void alteration$animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
+		if (!(Boolean)state.getValue(LIT)) {
+			return;
+		}
+
 		if (!(state.getBlock() instanceof CandleHolderBlock)) {
 			return;
 		}

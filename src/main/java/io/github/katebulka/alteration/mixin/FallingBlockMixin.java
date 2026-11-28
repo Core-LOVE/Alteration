@@ -36,8 +36,7 @@ public abstract class FallingBlockMixin extends Block {
 		throw new AssertionError();
 	}
 
-	@Inject(method = "tick(Lnet/minecraft/entity/player/BlockState;Lnet/minecraft/entity/player/ServerLevel;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/RandomSource;)V",
-			at = @At("HEAD"), cancellable = true)
+	@Inject(method = "tick", at = @At("HEAD"), cancellable = true)
 	private void alteration$tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo ci) {
 		if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinBuildHeight()) {
 			if (ModHelper.getChained(level, pos, state)) {

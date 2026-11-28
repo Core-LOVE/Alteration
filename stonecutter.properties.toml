@@ -2,20 +2,20 @@
 id = "alteration"
 name = "Alteration"
 group = "io.github.katebulka"
-version = "1.0.3"
+version = "1.0.4"
 channel_tag = ""
 description = "A mod that adds various random tweaks"
 authors = ["KateBulka"]
-contributors = ["Chemiofitor"]
+contributors = [""]
 inception_year = "2026"
 license.name = "MIT"
 license.url = "https://opensource.org/licenses/MIT"
 license.dist = "repo"
 environment = "client_and_server"
-sources_url = "https://github.com/rotgruengelb/stonecutter-mod-template"
-homepage_url = "https://github.com/rotgruengelb/stonecutter-mod-template"
-issues_url = "https://github.com/rotgruengelb/stonecutter-mod-template/issues"
-discord_url = "https://discord.gg/aunYJB4wz9"
+sources_url = "https://github.com/Core-LOVE/Alteration"
+homepage_url = "https://github.com/Core-LOVE/Alteration"
+issues_url = "https://github.com/Core-LOVE/Alteration/issues"
+discord_url = "https://discord.gg/ubfCZFHGFb"
 dev_jvm_args = [
 	"-XX:+IgnoreUnrecognizedVMOptions",
 	"-XX:+UseZGC",

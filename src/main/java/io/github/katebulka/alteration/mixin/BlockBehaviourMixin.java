@@ -24,10 +24,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockBehaviour.class)
 public abstract class BlockBehaviourMixin {
-	@ModifyReturnValue(method = "getShadeBrightness(Lnet/minecraft/entity/player/BlockState;Lnet/minecraft/entity/player/BlockGetter;Lnet/minecraft/util/math/BlockPos;)F",
-			at = @At("RETURN"))
-	private float alteration$getShadeBrightness(float original, BlockState p_60472_, BlockGetter p_60473_, BlockPos p_60474_) {
-		return (ModConfig.INSTANCE.darkerAmbientOcclusion && original == 0.2F) ? 0: original;
+	@ModifyReturnValue(method = "getShadeBrightness(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)F", at = @At("RETURN"))
+	private float alteration$getShadeBrightness(float original) {
+		return (ModConfig.INSTANCE.darkerAmbientOcclusion && original == 0.2F) ? 0.0F : original;
 	}
 
 	@Inject(method = "canBeReplaced", at = @At("RETURN"), cancellable = true)

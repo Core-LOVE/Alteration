@@ -22,8 +22,7 @@ public abstract class PointedDripstoneBlockMixin extends Block {
 		super(p_49795_);
 	}
 
-	@Inject(method = "spawnFallingStalactite(Lnet/minecraft/entity/player/BlockState;Lnet/minecraft/entity/player/ServerLevel;Lnet/minecraft/util/math/BlockPos;)V",
-			at = @At("HEAD"), cancellable = true)
+	@Inject(method = "spawnFallingStalactite", at = @At("HEAD"), cancellable = true)
 	private static void alteration$spawnFallingStalactite(BlockState state, ServerLevel level, BlockPos pos, CallbackInfo ci) {
 		if (ModHelper.getChained(level, pos, state)) {
 			ci.cancel();

@@ -25,7 +25,7 @@ public abstract class BlockStateBaseMixin {
 	@Shadow
 	protected abstract BlockState asState();
 
-	@ModifyReturnValue(method = "getLightBlock(Lnet/minecraft/entity/player/BlockGetter;Lnet/minecraft/util/math/BlockPos;)I", at = @At("RETURN"))
+	@ModifyReturnValue(method = "getLightBlock(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I", at = @At("RETURN"))
 	private int alteration$getLightBlock(int original, BlockGetter blockGetter, BlockPos blockPos) {
 		if (ModConfig.INSTANCE.darkerWater) {
 			return this.asState().getFluidState().is(FluidTags.WATER) ? 3 : original;

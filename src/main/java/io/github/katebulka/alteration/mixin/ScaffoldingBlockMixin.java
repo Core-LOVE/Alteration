@@ -15,8 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 		value = ScaffoldingBlock.class
 )
 public abstract class ScaffoldingBlockMixin {
-	@Inject(method = "tick(Lnet/minecraft/entity/player/BlockState;Lnet/minecraft/entity/player/ServerLevel;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/RandomSource;)V",
-			at = @At("HEAD"), cancellable = true)
+	@Inject(method = "tick", at = @At("HEAD"), cancellable = true)
 	private void alteration$tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo ci) {
 		if (ModHelper.getChained(level, pos, state)) {
 			ci.cancel();
